@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Calendar Notes</string>
+    <string name="day1">1</string>
+    <string name="day2">2</string>
+    <string name="day3">3</string>
+    <string name="day4">4</string>
+    <string name="day5">5</string>
+    <string name="day6">6</string>
+    <string name="day7">7</string>
+    <string name="day8">8</string>
+    <string name="day9">9</string>
+    <string name="day10">10</string>
+    <string name="day11">11</string>
+    <string name="day12">12</string>
+    <string name="day13">13</string>
+    <string name="day14">14</string>
+    <string name="day15">15</string>
+    <string name="day16">16</string>
+    <string name="day17">17</string>
+    <string name="day18">18</string>
+    <string name="day19">19</string>
+    <string name="day20">20</string>
+    <string name="day21">21</string>
+    <string name="day22">22</string>
+    <string name="day23">23</string>
+    <string name="day24">24</string>
+    <string name="day25">25</string>
+    <string name="day26">26</string>
+    <string name="day27">27</string>
+    <string name="day28">28</string>
+    <string name="day29">29</string>
+    <string name="day30">30</string>
+    <string name="day31">31</string>
+
+    <string name="dayD1">Sun</string>
+    <string name="dayD2">Mon</string>
+    <string name="dayD3">Tue</string>
+    <string name="dayD4">Wed</string>
+    <string name="dayD5">Thu</string>
+    <string name="dayD6">Fri</string>
+    <string name="dayD7">Sat</string>
+</resources>
