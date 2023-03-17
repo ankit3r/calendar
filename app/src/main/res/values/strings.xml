@@ -41,4 +41,5 @@
     <string name="dayD5">Thu</string>
     <string name="dayD6">Fri</string>
     <string name="dayD7">Sat</string>
+    <string name="save">Save</string>
 </resources>
