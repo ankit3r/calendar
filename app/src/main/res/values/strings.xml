@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Calendar Notes</string>
+    <string name="dayTime">%s / %s / %s</string>
+
     <string name="day1">1</string>
     <string name="day2">2</string>
     <string name="day3">3</string>
