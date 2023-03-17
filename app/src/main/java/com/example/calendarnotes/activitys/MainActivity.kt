@@ -4,14 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import com.example.calendarnotes.adapter.MyNoteAdapter
+import com.example.calendarnotes.adapter.MyNoteClick
 import com.example.calendarnotes.application.MyApp
 import com.example.calendarnotes.databinding.ActivityMainBinding
+import com.example.calendarnotes.model.CalendarNote
 import com.example.calendarnotes.viewModel.DBviewMode
 import com.example.calendarnotes.viewModel.DbFactroy
 import com.example.calendarnotes.viewModel.MainViewModel
+import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() ,MyNoteClick{
     private lateinit var binding: ActivityMainBinding
     private lateinit var mModel: MainViewModel
     private lateinit var dbModel: DBviewMode
@@ -27,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             goEditPage(dayOfMonth,month,year)
         }
+        dbModel.notes.observe(this){
+            binding.rcMain.adapter = MyNoteAdapter(this,it,this)
+        }
     }
     private fun goEditPage(dayOfMonth: Int, month: Int, year: Int) {
         val intent = Intent(this,EditActivity::class.java)
@@ -35,5 +42,10 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("year",year)
         startActivity(intent)
     }
+
+    override fun onClickView(note: CalendarNote) {
+        //
+    }
+
 
 }

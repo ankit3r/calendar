@@ -8,5 +8,5 @@ data class CalendarNote(
     @PrimaryKey val id: String,
     val date: Long,
     val description: String,
-    val colorCode: String
+    val colorCode: Int
 )

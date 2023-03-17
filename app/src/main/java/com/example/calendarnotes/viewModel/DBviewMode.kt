@@ -16,25 +16,28 @@ class DBviewMode(private val myRepo: MyRepo) : ViewModel() {
         get() = mList
 
 
-    fun getNote(){
+    private fun getNote(){
       viewModelScope.launch(Dispatchers.IO) {
         mList.postValue(myRepo.getNotes())
       }
     }
-    fun addNote(note: CalendarNote){
+    fun addNote(note: CalendarNote,responce: (Boolean, String) -> Unit){
       viewModelScope.launch(Dispatchers.IO) {
-        myRepo.addNote(note)
+        myRepo.addNote(note,responce)
       }
     }
-    fun deleteNote(note: CalendarNote){
+    fun deleteNote(note: CalendarNote,responce: (Boolean, String) -> Unit){
       viewModelScope.launch(Dispatchers.IO) {
-        myRepo.deleteNote(note)
+        myRepo.deleteNote(note,responce)
       }
     }
-    fun updateNote(note: CalendarNote){
+    fun updateNote(note: CalendarNote,responce: (Boolean, String) -> Unit){
       viewModelScope.launch(Dispatchers.IO) {
-        myRepo.updateNote(note)
+        myRepo.updateNote(note,responce)
       }
+    }
+    init {
+        getNote()
     }
 
 }
