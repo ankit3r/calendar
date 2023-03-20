@@ -73,6 +73,7 @@ class EditActivity : AppCompatActivity() {
         }
 
 
+
     }
 
     override fun onDestroy() {
@@ -82,6 +83,7 @@ class EditActivity : AppCompatActivity() {
 
     private fun addNote(note: String,responce: (Boolean, String) -> Unit) {
         val id = "${eViewModel.day}${eViewModel.month}${eViewModel.year}"
+
         dbModel.addNote(
             CalendarNote(
                 id,
