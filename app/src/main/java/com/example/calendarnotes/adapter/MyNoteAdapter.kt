@@ -1,18 +1,29 @@
 package com.example.calendarnotes.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.calendarnotes.databinding.LayoutNoteCardBinding
 import com.example.calendarnotes.model.CalendarNote
 
-class MyNoteAdapter(private val context: Context,private val note:List<CalendarNote>,private val click:MyNoteClick):RecyclerView.Adapter<MyNoteAdapter.MyViewHolder>() {
+class LiveDataRecyclerAdapter(
+    liveData: LiveData<List<CalendarNote>>
+) : RecyclerView.Adapter<LiveDataRecyclerAdapter.MyViewHolder>() ,Observer<List<CalendarNote>> {
+
+    private var data: List<CalendarNote> = listOf()
+
+    init {
+        liveData.observeForever(this)
+    }
+
     inner class MyViewHolder(private val binding: LayoutNoteCardBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(data: CalendarNote, click: MyNoteClick) {
+        fun bind(data: CalendarNote) {
             binding.apply {
-              txtTitle.text = data.description
-              txtDisc.text = data.description
+                txtTitle.text = "${data.date} ${data.description}"
+                txtDisc.text = data.description
 
             }
         }
@@ -25,10 +36,15 @@ class MyNoteAdapter(private val context: Context,private val note:List<CalendarN
     }
 
     override fun getItemCount(): Int {
-       return note.size
+      return data.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(note[position],click)
+        holder.bind(data[position])
+    }
+
+    override fun onChanged(value: List<CalendarNote>) {
+        data = value
+        notifyDataSetChanged()
     }
 }
